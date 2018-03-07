@@ -74,6 +74,8 @@ grant select, insert, update, delete, create, drop on app_development.* to 'app'
 
 feel free to change username and password as well, but you may want to write it down. Change the secrets.yml to reflect your new username and password if you do.
 
+AND OBVIOUSLY DON'T DEPLOY THIS ANYWHERE WITHOUT CHANGING THAT PASSWORD/USERNAME/DBNAME.
+
 NOW, FINALLY, we can migrate our files.
 
 rails db:migrate
@@ -83,3 +85,8 @@ I actually got an error the first time I tried this saying that such and such ta
 create table app_development;
 
 then quit again, and try the migrate. As long as the db account the app uses is set up I don't think you'll have much trouble from here on out.
+
+
+* ALL SET?
+
+Sweet! Track some tickets!
