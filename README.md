@@ -2,7 +2,7 @@
 
 This app was developed with Linux in mind. I'm not certain that Windows Users can install everything needed for this app. Mac Users should be ok.
 
-* BEFORE STARTING *
+* BEFORE STARTING 
 
 
 Make sure you have
@@ -20,7 +20,7 @@ git clone https://github.com/andrew-j-palmer/tickettracker.git
 and it build the app for you. Once THAT'S done, it's time for...
 
 
-* INSTALL *
+* INSTALL 
 
 There are a few non-standard Gems in use here. If we're lucky, all you have to do is stay in that same directory on command line and type
 
@@ -43,7 +43,7 @@ sudo apt-get install imagemagick
 Kind of like bcrypt, I would try to do a gem install paperclip, and then try taking the version out of Gemfile but not sure what else to do. Sorry!
 
 
-* DATABASE *
+* DATABASE 
 
 Database is MySQL. 
 *If mysql2 gem doesn't install*
