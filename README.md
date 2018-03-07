@@ -29,6 +29,7 @@ bundle install
 and it prompts for password once or twice and then says everything went great. If it DOESN'T, I can help a little. Here's what we may need to do to get everything running.
 
 *If it has trouble installing the bcrypt gem*
+
 bcrypt handles password hashing for user accounts. We need this. I haven't heard of too many issues with the bcrypt gem, but if you do have trouble with it, try this:
 
 sudo gem install bcrypt
@@ -36,6 +37,7 @@ sudo gem install bcrypt
 If that doesn't work either, I would recommend finding the line in the Gemfile and take out the part that mentions specific version, and then try bundle install again. That's about all I could say. 
 
 *If it has trouble with Paperclip*
+
 Paperclip is being used here to save screenshots to trouble tickets. It relies on ImageMagick to do this. If you get an error, you may not have ImageMagick installed.
 
 sudo apt-get install imagemagick
@@ -47,6 +49,7 @@ Kind of like bcrypt, I would try to do a gem install paperclip, and then try tak
 
 Database is MySQL. 
 *If mysql2 gem doesn't install*
+
 You may not have MySQL at all on your machine. try:
 
 sudo apt-get install mysql-server
