@@ -1,0 +1,32 @@
+<script>
+    hideButton("menuindex");
+</script>
+<div class="ticketlinkdiv">
+<h2><%=link_to 'Active Tickets.', tickets_path, class:'pasttickets switcherbutton', id:'logo'%></h2>
+</div>
+<div class="centering">
+
+<h2 class="pasttickets">Resolved Tickets.</h2>
+</div>
+<div class="centering">
+<table class="tablebg">
+    <thead>
+        <th>ID.</th>
+        <th>Issue.</th>
+        <th>Closed On.</th>
+        <th>Closed By.</th>
+    </thead>
+    <% @tickets.each do |t|%>
+        <tr>
+            <td><%= link_to t.id, t%></td>
+            <td><%= link_to t.title.truncate(65), t %></td>
+            <td><%= prettytime(t.updated_at)%></td>
+            <% if t.assigned_user %>
+            <td><%= link_to assigned_user_name(t), User.find(t.assigned_user)%></td>
+            <% else %>
+            <td> Unassigned </td>
+            <% end %>
+        </tr>
+    <%end%>
+</table>
+</div>

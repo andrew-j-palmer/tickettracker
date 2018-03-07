@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tickettracker</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700i|PT+Serif" rel="stylesheet">
+    <link href="assets/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    
+    <script>
+    /*simple functions to add/ remove buttons from floating righthand menu*/
+    function buildMenu(sourcediv) {
+    var menudiv = document.getElementById("menu");
+    menudiv.appendChild(document.getElementById(sourcediv));
+    }
+    
+    function hideButton(sourcediv) {
+    document.getElementById(sourcediv).style.display="none";
+    }
+    </script>
+
+    </head>
+  <body>
+  <!-- menu has button for sign-in or sign-out as needed --->
+      <% if !current_user %>
+      <div id="auth">
+          <%= link_to 'Sign In', new_session_path, class: 'linkbutton error' %>
+      </div>
+      <% else %>
+      <div id="auth">
+          <%= link_to 'Sign Out', session_path, method: :delete, class: 'linkbutton error' %>
+      </div>
+      <% end %>
+    <!-- end hide sign-in --->
+
+
+    <!-- admin menu button -->
+
+    <% if current_user_admin? %>
+    <div id="admin">
+        <%= link_to 'Admin', admin_path, class: 'linkbutton admin'%>
+    </div>
+    <% end %>
+  <%= render 'layouts/header' %>
+    <%= yield %>
+    <%= render 'layouts/footer'%>
+  </body>
+</html>

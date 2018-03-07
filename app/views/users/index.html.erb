@@ -1,0 +1,15 @@
+<header>
+<div id="formatuserpage">
+  <div id="infoheader" class="user">
+    <h2><%= pluralize(@users.size, 'User') %>.</h2>
+  </div>
+</div>
+</header>
+<div id="formatuserpage">
+  <% @users.each do |user| %>
+    <div id="formatuserpage">
+      <%= user.name %> <%= link_to "Details" ,user, class:"linkbutton"%>
+    </div>
+  <% end %>
+
+</div>

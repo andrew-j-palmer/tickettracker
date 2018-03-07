@@ -1,0 +1,14 @@
+<div id="infoheader">
+<h2>Update Ticket:</h2>
+</div>
+
+<%=form_with model: @ticket.comments, url:ticket_comments_path(@ticket) do |form|%>
+  <%=form.label "Current Status"%><br>
+  <%=form.select :currentstatus, Comment::CURRENTSTATUS, :selected => @ticket.status, class:"linkbutton" %><br>
+  <%=form.label "Additional Info"%><br>
+  <%=form.text_area :body%><br>
+  <br>
+
+  <%=form.submit 'Update Ticket'%>
+
+<%end%>

@@ -1,0 +1,18 @@
+<div class="card" id="infodiv">
+<div id="infoheader">
+  <h2><%= @user.name%></h2>
+</div>
+  <h4>User since <%= @user.created_at%></h4>
+  <h4>CONTACT: <%= mail_to @user.email%></h4>
+  <div id='stripe' style='z-index:1;'></div>
+  <div id="infoheader">
+    <h2>Active Assigned Tickets.</h2>
+  </div>
+    <% assigned_tickets(@user).each do |t| %>
+      <% if t.active %>
+      <span class="commentline taketicket">
+        <%= link_to t.title, t, class:"ticketlink" %><%= link_to t.status, t, class: "linkbutton status #{t.status} ticketlinkstatus"%>
+      </span><br>
+      <% end %>
+    <% end %>
+</div>

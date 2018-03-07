@@ -1,0 +1,29 @@
+
+<script>
+  hideButton("admin");
+  document.getElementById("things").innerHTML="ADMIN STUFF."
+</script>
+
+<div class="centering">
+<h2 id="logo">Recent Activity.</h2>
+</div>
+<table>
+    <thead>
+        <th>Action.</th>
+        <th>User.</th>
+        <th>Time.</th>
+    </thead>
+    <% all_recent_events.each do |e|%>
+        <tr>
+            <td>
+            <% if interpret_event_object(e.event_id, e.object, e.action) %>
+            <%=link_to "#{e.action + e.object} ID##{e.event_id}",interpret_event_object(e.event_id, e.object, e.action)%>
+            <% else %>
+            <span class="deleted">
+            <%= e.action + e.object + " ID##{e.event_id}"%>
+            </span>
+            <% end %>
+            </td><td><%=link_to User.find(e.user).name, User.find(e.user)%></td><td><%=e.updated_at%></td>
+        </tr>
+    <% end %>
+</table>

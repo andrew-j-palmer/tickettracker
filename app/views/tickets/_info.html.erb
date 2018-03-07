@@ -1,0 +1,63 @@
+<!-- Modal for large screenshot view -->
+<div id="imgModal" class="modal">
+
+  <!-- "X" to close modal -->
+  <span class="close">&times;</span>
+
+  <!-- Img tag to be filled with content from thumb -->
+  <img class="bigimage" id="img">
+  <%=link_to "View original size", @ticket.screenshot.url, id:'caption'%>
+</div>
+<!-- End screenshot modal-->
+
+<div id="infodiv" class="card">
+    <div id="infoheader">
+        <h2 class="header">Ticket Information: #<%=@ticket.id%></h2>
+    </div>
+    <ul>
+    <li>Created on: <%=prettytime(@ticket.created_at)%></li>
+    <% if @ticket.assigned_user %>
+      <li>Assigned to: <%= link_to assigned_user_name(@ticket), User.find(@ticket.assigned_user)%></li>
+    <% end %>
+    <% if @ticket.status != "Resolved"%>
+        <li>Current Status: <span class="linkbutton status <%=@ticket.status%>"><%=@ticket.status%></span></li>
+    <% end %>
+    <% if @ticket.comments.any?%>
+    <li>Started work on: <%=prettytime(@ticket.comments.first.created_at)%></li>
+    <li>Number of updates: <%=@ticket.comments.all.count%></li>
+    <% end %>
+    <li>
+    <% if @ticket.active %>
+        Last Updated: 
+    <% else %>
+        Closed on:
+    <% end %>
+    <%=prettytime(@ticket.updated_at)%></li>
+    </ul>
+    <div id="infopic">
+    <% if @ticket.screenshot.file?%>
+        <h2>Screenshot:</h2>
+        <%=image_tag @ticket.screenshot.url(:full), id:'thumbnail'%>
+    <% end %>
+    </div>
+</div>
+
+<script>
+// Modal for large views of screenshot
+//first one puts entire modal div into var
+var modal = document.getElementById('imgModal');
+
+// grab thumbnail, set it as src for modal image tag
+var img = document.getElementById('thumbnail');
+var modalImg = document.getElementById("img");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+}
+
+// get ready to use "X" to close modal
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+  modal.style.display = "none";
+}
+</script>

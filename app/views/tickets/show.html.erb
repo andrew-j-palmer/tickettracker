@@ -1,0 +1,40 @@
+<div id="editticket">
+  <%=link_to "Edit Ticket", edit_ticket_path(@ticket), class: "linkbutton" %>
+</div>
+  <script>
+    buildMenu("editticket");
+  </script>
+  <div class ="card">
+    <div id="infoheader" class="wrap">
+      <h2><%=@ticket.title%></h2>
+    </div>
+    <%= prettytime(@ticket.created_at)%> - <%=@ticket.description%>
+    <br>
+  </div>
+
+<div class="card">
+
+<div id="infoheader" class="wrap">
+    <h3>UPDATES:</h3>
+  </div>
+  <% if !@ticket.assigned_user %>
+  <div class="taketicket">
+    <%= form_for @ticket, method: :patch do |f|%>
+      <%= f.hidden_field :assigned_user, value: current_user.id %>
+      <%= f.submit "Take Ticket"%>
+    <% end %>
+    Nobody has taken this ticket.
+  </div>
+  <% end %>
+  <%=render @ticket.comments%>
+
+</div>
+
+  <%=render 'info'%>
+  <div id="formdiv">
+  <%=render 'comments/form'%>
+  <%= link_to 'Cancel Comment', tickets_path, class: "linkbutton" %>
+
+</div>
+
+

@@ -1,0 +1,16 @@
+<script>
+hideButton("menunew");
+</script>
+<div id="formdiv">
+    <div id="infoheader">
+        <h2>New Ticket</h2>
+    </div>
+    <%=render 'form'%>
+    <%= link_to 'Cancel New', tickets_path, class: "linkbutton" %>
+</div>
+<% if @user = current_user %>
+
+  <div>
+      <%= render 'users/info'%>
+  </div>
+<% end %>

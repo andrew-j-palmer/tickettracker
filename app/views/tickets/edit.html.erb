@@ -1,0 +1,9 @@
+<%=render 'info'%>
+<div id="formdiv">
+    <div id="infoheader">
+        <h2>Edit Ticket.</h2>
+    </div>
+    <%=render 'form'%>
+    <%= link_to 'Cancel Edit', ticket_path(@ticket), class: "linkbutton" %>
+    <%= link_to 'Delete Ticket', ticket_path(@ticket), method: :delete,data: { confirm: 'Are you sure? There is NO UNDO for this action.' }, class: " warning linkbutton" %>
+</div>

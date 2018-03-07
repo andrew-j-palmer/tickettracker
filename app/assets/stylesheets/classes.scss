@@ -1,0 +1,137 @@
+@import "colors";
+.centering {
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+#logo {
+    color:$text-highlight;
+    text-shadow: 2px 2px 2px $text-header;
+}
+
+.username {
+    font-family: 'Playfair Display', serif;
+    font-size:12px;
+    color: $shadow;
+    float:right;
+
+}
+#menu {
+    width:116px;
+    margin-right:4px;
+    margin-top:28px;
+    padding-left:6px;
+    background: $bg-menu;
+    position: fixed;
+    top: 0px;
+    right:0px;
+    border:1px solid $button-text;
+    border-radius:4px;
+    border-style: ridge;
+    box-shadow: 2px 4px 6px $shadow;
+    z-index: 1000;
+}
+#bodydiv {
+    width:100%;
+    display:inline-block;
+}
+#headerdiv {
+    padding-top:10px;
+    padding-bottom: 20px;
+}
+#stripe {
+    position: relative;
+    width: 92%;
+    background:$shadow;
+    padding:1px;
+    margin: 4%;
+    z-index: -1;
+
+}
+.dothings {
+    margin-bottom:10px;
+}
+.warning {
+    background:$button-warning !important;
+    color:#fff !important;
+    border: 1px solid #fff;
+    position:relative;
+    left: 10%;
+}
+.error {
+    color:$button-warning !important;
+}
+#infodiv {
+    width:40%;
+    float:right;
+    padding: 16px;
+    padding-top:10px;
+    margin-right:16px;
+}
+#infoheader {
+    background: $bg-header;
+    color:$text-header;
+    text-shadow: 1px 2px $shadow;
+    margin-bottom:12px;
+    border-radius: 4px;
+}
+#formdiv {
+    padding:16px;
+    padding-top:10px;
+    width:35%;
+    float: left;
+    margin-left:7%;
+}
+#screenshot {
+    
+}
+
+.card {
+    background:#eee1d1;
+    color:$button-text;
+    padding:4px;
+    margin:2px;
+    margin-right:10%;
+    margin-bottom: 16px;
+    border: 1px solid $button-text;
+    border-radius: 4px;
+    box-shadow: 1px 4px 12px $shadow;
+    font-size: 14px;
+}
+
+.commentdeets {
+    font-family: 'Playfair Display', serif;
+}
+
+.commentline {
+    align-content: center;
+    display:inline-block;
+    padding-bottom: 8px;
+}
+.commentline:Hover, tr:Hover {
+    background: darken($button-main, 5%);
+}
+.wrap {
+    width: fit-content;
+    padding-right: 6px;
+}
+.taketicket {
+    width:100%;
+}
+.ticketlink {
+    align-items: center;
+    max-width:50%;
+    float:left;
+    font-size: 18px;
+    font-weight:560;
+}
+.ticketlinkstatus {
+    float:right;
+    font-size: 14px !important;
+    padding:2px !important;
+    margin:4px 0px 0px 0px !important;
+}
+.deleted {
+    color:$button-warning;
+    opacity:0.8;
+}
