@@ -1,12 +1,12 @@
 <div>
 
-    <div id="formdiv">
-        <%= render 'form' %>
-    </div>
-
     <div>
         <%= render 'info'%>
     </div>
-
+<% if current_user == @user || current_user_admin? %>
+    <div id="formdiv">
+        <%= render 'form' %>
+    </div>
+<% end %>
 </div>
 

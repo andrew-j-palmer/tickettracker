@@ -1,0 +1,40 @@
+
+<div id="formdiv">
+    <div id="infoheader">
+        <h2>Edit Comment.</h2>
+    </div>
+
+
+<%=form_with controller: "comments", action: "update", id: @comment.id, ticket_id: @comment.ticket_id do |form|%>
+    <%=form.label "Current Status"%><br>
+    <%=form.select :currentstatus, Comment::CURRENTSTATUS, :selected => @comment.currentstatus %><br>
+    <%=form.hidden_field :ticket_id, value: @ticket.id%>
+    <%=form.label "Additional Info"%><br>
+    <%=form.text_area :body, value: @comment.body%><br>
+    <br>
+  
+    <%=form.submit 'Update Comment'%>
+  
+  <%end%>
+
+    <%= link_to 'Cancel Edit', ticket_path(@comment.ticket_id), class: "linkbutton" %>
+    <br><br>
+    <% if current_user_admin? %>
+
+    <%= link_to 'Delete Comment', ticket_comment_path, method: :delete, class: "linkbutton warning"%>
+    <% end %>
+</div>
+
+<div id="infodiv">
+    <div class="card">
+    <div id="infoheader">
+    <h2>All Ticket Comments.</h2>
+    </div>
+    <% @comments.each do |c|%>
+        <span class="commentdeets">
+        <div class="linkbutton status <%=c.currentstatus%>"><%=c.currentstatus%></div>
+          <%=c.user.name%> (<%=prettytime(c.created_at)%>):
+        </span> <%= c.body%><br>
+    <% end%>
+    </div>
+</div>

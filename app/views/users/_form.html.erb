@@ -1,6 +1,7 @@
 <div id="infoheader">
   <h2>Edit Account Details.</h2>
 </div>
+<div class="userform">
 <%= form_with model: @user, url: user_path do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name, size: 40, autofocus: true %><br>
@@ -12,4 +13,11 @@
   <%= f.password_field :password_confirmation, size: 40 %><br>
   <br>
   <%= f.submit %>
-<% end %>
+  <% end %>
+  <br>
+  <br>
+  <% if current_user_admin? %>
+    <%= link_to 'Delete User', user_path(@user), method: :delete,data: { confirm: 'Are you sure? There is NO UNDO for this action.' }, class: " warning linkbutton" %>
+
+  <% end %>
+</div>

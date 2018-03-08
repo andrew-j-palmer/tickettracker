@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180305041011) do
-=======
-ActiveRecord::Schema.define(version: 20180304192639) do
->>>>>>> 59890bb110decaf5b69aca24f8eb47061dddfd70
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "body"

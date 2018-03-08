@@ -57,17 +57,32 @@ private
   end
 
   helper_method :all_recent_events
+  
+  def return_object_or_false(object, id)
+    case object
+    when "Ticket"
+      @ticket = Ticket.find_by(id: id)
+      if @ticket.present?
+        @ticket
+      end
+    when "Comment"
+      @comment = Comment.find_by(id: id)
+      if @comment.present?
+        Ticket.find(@comment.ticket_id)
+      end
+    when "User"
+      @user = User.find_by(id: id)
+      if @user.present?
+        @user
+      end
+    end
+  end
+
+  helper_method :return_object_or_false
 
   def interpret_event_object(logged_id, object, action)
     if action != "Deleted "
-      if object == "Ticket"
-        @ticket = Ticket.find(logged_id)
-      elsif object == "Comment"
-        @comment = Comment.find_by(logged_id)
-        @ticket = Ticket.find(@comment.ticket_id)
-      else object == "User"
-        @user = User.find(logged_id)
-      end
+      return_object_or_false(object, logged_id)
     end
   end
 

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-  before_action :set_ticket
+  before_action :set_ticket, except: :show
   before_action :require_signin
 
   def create
@@ -13,6 +13,27 @@ class CommentsController < ApplicationController
       redirect_to ticket_path(@ticket)
     else
       render :new
+    end
+  end
+
+  def edit
+    @comment = Comment.find(params[:id])
+    @comments =  Comment.where(ticket_id: @comment.ticket_id)
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.save
+      log_event(@comment, "Updated ")
+      redirect_to :admin
+    end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    log_event(@comment, "Deleted ")
+    if @comment.destroy
+      redirect_to :admin
     end
   end
 

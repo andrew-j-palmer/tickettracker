@@ -22,7 +22,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     if @ticket.update(ticket_params)
       log_event(@ticket, "Updated ")
-      redirect_to @ticket
+      redirect_to :index
     else
       render :edit
     end

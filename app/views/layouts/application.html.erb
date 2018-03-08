@@ -35,12 +35,13 @@
     <!-- end hide sign-in --->
 
 
-    <!-- admin menu button -->
+    <!-- admin only buttons -->
 
     <% if current_user_admin? %>
     <div id="admin">
         <%= link_to 'Admin', admin_path, class: 'linkbutton admin'%>
     </div>
+    
     <% end %>
   <%= render 'layouts/header' %>
     <%= yield %>

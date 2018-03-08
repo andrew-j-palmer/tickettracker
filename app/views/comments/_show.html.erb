@@ -1,0 +1,8 @@
+<% @ticket.comments.each do |c| %>
+  <div class="commentline taketicket">
+  <span class="commentdeets">
+  <div class="linkbutton status <%=c.currentstatus%>"><%=c.currentstatus%></div>
+    <%=c.user.name%> (<%=prettytime(c.created_at)%>):
+  </span><%= link_to c.body, controller: "comments", action: "edit", id: c, ticket_id: c.ticket_id %><br>
+  </div>
+  <% end %>

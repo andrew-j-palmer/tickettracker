@@ -56,7 +56,6 @@
     color:#fff !important;
     border: 1px solid #fff;
     position:relative;
-    left: 10%;
 }
 .error {
     color:$button-warning !important;
@@ -135,3 +134,9 @@
     color:$button-warning;
     opacity:0.8;
 }
+
+.userform {
+    display:block;
+    justify-content:left;
+}
+
