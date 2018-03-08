@@ -5,7 +5,7 @@ This app was developed with Linux in mind. I'm not certain that Windows Users ca
 * BEFORE STARTING 
 
 
-Make sure you have
+Make sure you have something like
 - Ruby 2.4.2
 - Rails 5.1.4
 
@@ -17,7 +17,7 @@ git clone https://github.com/andrew-j-palmer/tickettracker.git
 
 (hopefully you have git)
 
-and it build the app for you. Once THAT'S done, it's time for...
+and it should build the app for you. Once THAT'S done, it's time for...
 
 
 * INSTALL 
