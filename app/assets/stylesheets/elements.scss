@@ -112,7 +112,7 @@ a {
     display: inline-block;
 }
 
-input[type=text], textarea, select, input[type=email], input[type=password] {
+input[type=text], textarea, input[type=email], input[type=password] {
     font-family: 'PT Serif', serif;
     background: #eee1d1;
     width:90%;
@@ -120,6 +120,15 @@ input[type=text], textarea, select, input[type=email], input[type=password] {
     border:1px solid darken($bg-main, 10%);
     border-radius:4px;
 
+}
+
+select {
+    width: 40%;
+    font-family: 'PT Serif', serif;
+    background: #eee1d1;
+    max-width: 320px;
+    border:1px solid darken($bg-main, 10%);
+    border-radius:4px;
 }
 
 textarea {
@@ -134,8 +143,6 @@ textarea {
     cursor: pointer;
     transition: 0.3s;
 }
-#thumbnail:hover {opacity: 0.7;}
-/* modal bg styling */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -171,12 +178,6 @@ textarea {
     font-size: 40px;
     font-weight: bold;
     transition: 0.1s;
-}
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
 }
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
@@ -222,6 +223,49 @@ textarea {
 }
 
 .admin {
+    font-family:'Playfair Display', 'Serif';
     background:$text-highlight;
     color:$text-header;
+    border-radius:4px;
+    padding:4px;
+}
+.flashdiv {
+    position: absolute;
+    top:-250px;
+    z-index: 15000;
+    width:20%;
+    right: 40%;
+    font-size: 24px;
+    padding: 1% 0% 1% 0%; 
+    text-align: center;
+    border-radius: 4px;
+    font-family: 'Playfair Display', Serif;
+    text-shadow: 1px 1px 1px #000000;
+    opacity:0.7;
+    margin-top: 5%;
+    animation-name: dropin;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+.notice {
+    background:$text-highlight;
+    color:$text-header;
+    border: 1px solid $text-header;
+}
+
+.alert {
+    background:$button-warning;
+    color:#ffffff;
+    border: 1px solid #ffffff;
+}
+
+@keyframes dropin {
+0%{top:-250px;}
+20%{top:-250px;}
+23%{top:-10px;}
+26%{top:0px;}
+94%{top:0px;}
+97%{top:-10px;}
+100%{top:-250px;}
 }

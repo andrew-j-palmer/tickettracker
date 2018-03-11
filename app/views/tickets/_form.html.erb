@@ -15,13 +15,22 @@
 
 <%=form.label :title%><br>
 <%=form.text_field :title%><br>
-<br>
 <%=form.label :status%><br>
-<%=form.select :status, Ticket::STATUS, prompt:" Choose Status ",class:"linkbutton" %><br>
+<%=form.select :status, Ticket::STATUS, prompt:" Choose Status ",class:"selectbox" %>
+<br>
+<% if request.original_url.include? 'edit'%>
+    <% if current_user_admin? %>
+      <%=form.label :assigned_user %><br>
+      <%=form.select :assigned_user, User.all.collect {|u| [ u.name, u.id ] }, include_blank:true, class:"selectbox"%>
+      <br>
+      <%end%>
+<%end%>
+
 <%=form.label :description%><br>
 <%=form.text_area :description%><br>
 <%=form.label :screenshot, class:"linkbutton"%><br>
 <%=form.file_field :screenshot, style:"display:none;"%><br>
 <br>
 <%=form.submit%>
+
 <%end%>

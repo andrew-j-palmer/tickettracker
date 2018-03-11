@@ -2,11 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #formatuserpage {
-    width:60%;
-    align-content: inherit;
+    padding: 10px 16px 16px 16px;
+    width:50%;
+    float:right;
 
 }
 
 .user {
     align:left !important;
+    padding: 4px 0px 4px 0px;
 }

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
 
   def index
+    @user = User.new
     @users = User.all
   end
 
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       log_event(@user, "Updated ")
-      redirect_to @user
+      redirect_to @user, notice: "Successfully Updated."
     else
       render :show
     end
@@ -39,14 +40,14 @@ class UsersController < ApplicationController
   def destroy
     log_event(@user, "Deleted ")
     @user.destroy
-    redirect_to root_url
+    redirect_to root_url, alert: "Account Deleted."
   end
 
   def admin
     if current_user_admin?
       render :admin
     else
-      redirect_to :index
+      redirect_to :index, alert: "Not Authorized."
     end
   end
 
@@ -58,6 +59,6 @@ private
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirm)
+    params.require(:user).permit(:name, :email, :password, :password_confirm, :admin)
   end
 end

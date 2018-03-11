@@ -10,7 +10,12 @@ class CommentsController < ApplicationController
       log_event(@comment, "Created ")
       @ticket.status = @comment.currentstatus
       @ticket.save
-      redirect_to ticket_path(@ticket)
+      if @comment.currentstatus = "Resolved"
+        @message = "Ticket Closed."
+      else
+        @message = "Successfully Updated."
+      end
+      redirect_to ticket_path(@ticket), notice: @message
     else
       render :new
     end
@@ -24,8 +29,13 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.save
+      if @comment.currentstatus = "Resolved"
+        @message = "Ticket Closed."
+      else
+        @message = "Successfully Updated."
+      end
       log_event(@comment, "Updated ")
-      redirect_to :admin
+      redirect_to :admin, notice: @message
     end
   end
 
@@ -33,7 +43,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     log_event(@comment, "Deleted ")
     if @comment.destroy
-      redirect_to :admin
+      redirect_to :admin, alert: "Deletion Logged."
     end
   end
 

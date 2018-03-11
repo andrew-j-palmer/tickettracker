@@ -5,7 +5,7 @@ private
   def require_signin
     unless current_user
       session[:intended_url] = request.url
-      redirect_to new_session_url, alert: "PLEASE SIGN IN FIRST."
+      redirect_to new_session_url, alert: "Sign In."
     end
   end
 
@@ -36,7 +36,7 @@ private
 
   def require_admin
     unless current_user.admin?
-      redirect_to root_url, alert: "NOT AUTHORIZED"
+      redirect_to root_url, alert: "Not Authorized."
     end
   end
 

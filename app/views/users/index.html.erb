@@ -1,15 +1,31 @@
-<header>
 <div id="formatuserpage">
-  <div id="infoheader" class="user">
-    <h2><%= pluralize(@users.size, 'User') %>.</h2>
+  <div id="infoheader">
+    <h2>Current Users.</h2>
   </div>
-</div>
-</header>
-<div id="formatuserpage">
-  <% @users.each do |user| %>
-    <div id="formatuserpage">
-      <%= user.name %> <%= link_to "Details" ,user, class:"linkbutton"%>
+  <% @users.each do |u| %>
+    <div class="user">
+      <%= link_to "Edit" ,u, class:"linkbutton hide"%><%= u.name %>
+      <% if u.admin %>
+        <span class="admin">Admin</span>
+      <% end %>
     </div>
   <% end %>
-
 </div>
+    <div id="formdiv">
+        <div id="infoheader">    
+            <h2>Create User.</h2>
+        </div>
+        <%= form_with model: @user, url: users_path, method: :create do |f| %>
+          <%= f.label :name %><div style="float:right;"><%=f.label :admin%><br><%= f.check_box :admin%></div><br>
+          <%= f.text_field :name, size: 40, autofocus: true %><br>
+          <%= f.label :email %><br>
+          <%= f.email_field :email, size: 40 %><br>
+          <%= f.label :password %><br>
+          <%= f.password_field :password, size: 40 %><br>
+          <%= f.label :password_confirmation, "Confirm Password" %><br>
+          <%= f.password_field :password_confirmation, size: 40 %><br>
+          <br>
+          <%= f.submit %>
+          <% end %>
+
+    </div>

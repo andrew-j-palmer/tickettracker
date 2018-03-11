@@ -22,7 +22,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     if @ticket.update(ticket_params)
       log_event(@ticket, "Updated ")
-      redirect_to :index
+      redirect_to @ticket, notice: "Sucessfully Updated."
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     if @ticket.save
       log_event(@ticket, "Created ")
-      redirect_to @ticket
+      redirect_to @ticket, notice: "Ticket created."
     else
       render :new
     end
@@ -46,7 +46,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     log_event(@ticket, "Deleted ")
     if @ticket.destroy
-      redirect_to tickets_path
+      redirect_to tickets_path, alert: "Ticket deleted."
     end
   end
 
