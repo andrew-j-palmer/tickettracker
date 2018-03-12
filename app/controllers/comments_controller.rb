@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       log_event(@comment, "Created ")
       @ticket.status = @comment.currentstatus
       @ticket.save
-      if @comment.currentstatus = "Resolved"
+      if @comment.currentstatus == "Resolved"
         @message = "Ticket Closed."
       else
         @message = "Successfully Updated."
