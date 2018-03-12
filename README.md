@@ -6,7 +6,7 @@ This app was developed with Linux in mind. I'm not certain that Windows Users ca
 
 
 Make sure you have something like
-- Ruby 2.4.2
+- Ruby 2.3.1
 - Rails 5.1.4
 
 I'm sure there is some room for error with versions here, but possibly not much. I've seen enough goofy issues with Ruby/Rails versions to know that this is probably the first place to look if trouble arises.
@@ -60,7 +60,7 @@ sudo apt-get install libmysqlclient-dev
 
 (I have used MySQL on my machine for years and I still needed this update to use the MySQL2 gem)
 
-Unlike the default SQLite3, MySQL takes a little bit of setup before we can use it here. First we need to create an account that the app will use to access the database. To do that, we're going to log into MySQL with:
+Unlike the default SQLite3, MySQL takes a little bit of setup before we can use it here. The database.yml included here has default values for database name and account, we just need to configure MySQL. First, we need to create an account that the app will use to access the database. To do that, we're going to log into MySQL with:
 
 mysql -u root -p
 
