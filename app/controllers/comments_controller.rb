@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.save
-      if @comment.currentstatus = "Resolved"
+      if @comment.currentstatus == "Resolved"
         @message = "Ticket Closed."
       else
         @message = "Successfully Updated."
