@@ -19,4 +19,6 @@
 .byebug_history
 /config/secrets.yml
 
+#stuff added during dev no longer needed
 /public/system.*
+devdump.sql
