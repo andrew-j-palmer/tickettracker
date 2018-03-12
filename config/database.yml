@@ -73,8 +73,8 @@ development:
 # You can use this database configuration with:
 #
 #   production:
-#     url: <%= ENV['DATABASE_URL'] %>
+     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+#  <<: *default
+#  url: <%= ENV['DATABASE_URL'] %>
