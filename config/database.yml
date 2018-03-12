@@ -77,7 +77,4 @@ development:
 #
 production:
   <<: *default
-  database: app_production
-  username: app
-  password: <%= ENV['DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
