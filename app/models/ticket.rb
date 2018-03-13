@@ -1,5 +1,9 @@
 class Ticket < ApplicationRecord
-  has_attached_file :screenshot, styles: { full: "640x480>", thumb: "160x120>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :screenshot, 
+    styles: { full: "640x480>", thumb: "160x120>" },
+    storage: :cloudinary,
+    path: ':id/:style/:filename',
+    cloudinary_resource_type: :image  
   has_many :comments, dependent: :destroy
   validates :title, length: { minimum: 8 }
   validates :description, length: { minimum: 32 }
