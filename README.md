@@ -36,9 +36,9 @@ sudo gem install bcrypt
 
 If that doesn't work either, I would recommend finding the line in the Gemfile and take out the part that mentions specific version, and then try bundle install again. That's about all I could say. 
 
-*If it has trouble with Paperclip*
+*If it has trouble with Paperclip or paperclip-cloudinary*
 
-Paperclip is being used here to save screenshots to trouble tickets. It relies on ImageMagick to do this. If you get an error, you may not have ImageMagick installed.
+Paperclip is being used here to save screenshots to trouble tickets. It relies on ImageMagick to do this. If you get an error, you may not have ImageMagick installed. Alternatively, you may be able to rework the image processing using the paperclip-cloudinary gem, as cloudinary can do image transforms just like ImageMagick. If you want to install ImageMagick,
 
 sudo apt-get install imagemagick
 
