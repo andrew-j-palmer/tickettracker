@@ -28,7 +28,13 @@
             <%= e.action + e.object + " ID##{e.event_id}"%>
             </span>
             <% end %>
-            </td><td><%=link_to User.find(e.user).name, User.find(e.user)%></td><td><%=e.updated_at%></td>
+            </td><td>
+            <% if User.find(e.user) %>
+                <%=link_to User.find(e.user).name, User.find(e.user)%>
+            <% else %>
+                <%= e.user %>
+            <% end %>
+            </td><td><%=e.updated_at%></td>
         </tr>
     <% end %>
 </table>
