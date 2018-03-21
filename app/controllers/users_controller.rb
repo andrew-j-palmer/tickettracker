@@ -61,14 +61,6 @@ private
     redirect_to root_url unless current_user_admin?
   end
 
-  def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
-  def require_correct_user
-    @user = User.find(params[:id])
-    redirect_to root_url unless current_user_admin?
-  end
-
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirm, :admin)
   end
