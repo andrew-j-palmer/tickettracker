@@ -24,12 +24,6 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :new
-    end
-  end
-
-  def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
       log_event(@user, "Updated ")
       redirect_to @user, notice: "Successfully Updated."
     else
@@ -53,6 +47,12 @@ class UsersController < ApplicationController
 
 private
 
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
   def require_correct_user
     @user = User.find(params[:id])
     redirect_to root_url unless current_user_admin?
