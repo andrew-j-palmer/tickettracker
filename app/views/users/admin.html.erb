@@ -22,17 +22,19 @@
         <tr>
             <td>
             <% if interpret_event_object(e.event_id, e.object, e.action) %>
-            <%=link_to "#{e.action} #{e.object} ID##{e.event_id}",interpret_event_object(e.event_id, e.object, e.action)%>
+                <%=link_to "#{e.action} #{e.object} ID##{e.event_id}",interpret_event_object(e.event_id, e.object, e.action)%>
             <% else %>
             <span class="deleted">
-            <%= e.action + e.object + " ID##{e.event_id}"%>
+                <%= e.action + e.object + " ID##{e.event_id}"%>
             </span>
             <% end %>
             </td><td>
-            <% if User.find(e.user) %>
+            <% if return_object_or_false("User", e.user) %>
                 <%=link_to User.find(e.user).name, User.find(e.user)%>
             <% else %>
-                <%= e.user %>
+                <span class="deleted">
+                    Deleted User ID#<%= e.user %>
+                </span>
             <% end %>
             </td><td><%=e.updated_at%></td>
         </tr>

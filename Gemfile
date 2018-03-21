@@ -4,7 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-ruby "2.4.2"
+ruby "2.4.1"
 #paperclip library to handle file uploads (images)
 gem "paperclip", "~> 5.2.1"
 #also adding cloudinary support

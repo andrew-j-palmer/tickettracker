@@ -26,7 +26,7 @@ default: &default
 development:
   <<: *default
   database: app_development
-
+  secret_key_base: "secrets/secret_key_base"
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -72,9 +72,6 @@ development:
 # You can use this database configuration with:
 #
 production:
+  <<: *default
   url: <%= ENV['DATABASE_URL'] %>
   secret_key_base: <%= ENV['SECRET_KEY_BASE'] %>
-#
-production:
-#  <<: *default
-#  url: <%= ENV['DATABASE_URL'] %>
