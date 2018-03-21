@@ -24,6 +24,10 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :new
+      log_event(@user, "Updated ")
+      redirect_to @user, notice: "Successfully Updated."
+    else
+      render :show
     end
   end
 
@@ -35,7 +39,6 @@ class UsersController < ApplicationController
     else
       render :show
     end
-  end
 
   def destroy
     log_event(@user, "Deleted ")
@@ -53,6 +56,14 @@ class UsersController < ApplicationController
 
 private
 
+  def require_correct_user
+    @user = User.find(params[:id])
+    redirect_to root_url unless current_user_admin?
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
   def require_correct_user
     @user = User.find(params[:id])
     redirect_to root_url unless current_user_admin?
