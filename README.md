@@ -80,9 +80,9 @@ NOW, FINALLY, we can migrate our files.
 
 rails db:migrate
 
-I actually got an error the first time I tried this saying that such and such table already existed. I just re-ran migrate and it was fine. If for some reason it can't create the table at all, go back into MySQL and type
+I actually got an error the first time I tried this saying that such and such table already existed. I just re-ran migrate and it was fine. If for some reason it can't create the database at all, go back into MySQL and type
 
-create table app_development;
+create database app_development;
 
 then quit again, and try the migrate. As long as the db account the app uses is set up I don't think you'll have much trouble from here on out.
 
