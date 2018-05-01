@@ -5,8 +5,16 @@
     justify-content:center;
 }
 #logo {
+    z-index: 2;
     color:$text-highlight;
     text-shadow: 2px 2px 2px $text-header;
+}
+
+#logobg {
+    z-index: -2;
+    position: sticky;
+    left: 0;
+
 }
 
 .username {
