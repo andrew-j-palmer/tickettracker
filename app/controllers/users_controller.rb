@@ -39,6 +39,7 @@ class UsersController < ApplicationController
     else
       render :show
     end
+  end
 
   def destroy
     log_event(@user, "Deleted ")
