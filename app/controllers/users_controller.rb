@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       log_event(@user, "Created ")
       session[:user_id] = @user.id
       redirect_to @user
-    else
+    elsif
       render :new
       log_event(@user, "Updated ")
       redirect_to @user, notice: "Successfully Updated."
