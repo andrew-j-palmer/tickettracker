@@ -6,6 +6,8 @@
 }
 #logo {
     z-index: 2;
+    position: fixed;
+    top: 4rem;
     color:$text-highlight;
     text-shadow: 2px 2px 2px $text-header;
 }
@@ -14,7 +16,7 @@
     z-index: -2;
     position: fixed;
     left: 0;
-    top: 4rem;
+    top: 2rem;
 
 }
 
