@@ -6,7 +6,7 @@
 }
 #logo {
     z-index: 2;
-    position: fixed;
+    position: absolute;
     top: 4rem;
     color:$text-highlight;
     text-shadow: 2px 2px 2px $text-header;
@@ -14,7 +14,7 @@
 
 #logobg {
     z-index: -2;
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 2rem;
 
