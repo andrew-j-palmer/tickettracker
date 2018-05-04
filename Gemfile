@@ -9,6 +9,7 @@ ruby "2.4.1"
 gem "paperclip", "~> 5.2.1"
 #also adding cloudinary support
 gem 'paperclip-cloudinary'
+gem 'cloudinary'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
